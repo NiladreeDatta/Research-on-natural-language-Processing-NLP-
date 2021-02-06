@@ -1,0 +1,14 @@
+import fnmatch
+import os
+import glob
+import xml.etree.ElementTree as ET
+path = "E:/7th semester/Dataset Demo/Training"
+for file in os.listdir('E:/7th semester/Dataset Demo/Training'):
+    if fnmatch.fnmatch(file, '*.xml'):
+        print(file[0:32] + "   :::   ")
+        m = path +"/"+ file
+
+        mytree = ET.parse(m)
+        myroot = mytree.getroot()
+        for x in myroot[0]:
+            print("                                       " + x.text)
